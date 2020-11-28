@@ -1,0 +1,18 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Category extends Model
+{
+    protected $fillable = [
+        'name',
+        'description',
+        'slug'
+    ];
+    // criar uma nova função para especificar o relacionamento entre os models 'Post' e 'Category'
+    public function posts() {
+        return $this->belongsToMany(Post::class,'posts_categories');
+    }
+}
